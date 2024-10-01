@@ -1,0 +1,31 @@
+<section class="historySection__Container">
+  <h2 class="header">Your Search History</h2>
+  
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Search Term</th>
+          <th>Search Results</th>
+          <th>User Image</th>
+          <th>GitHub User Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of searchHistory$ | async">
+          <td>{{ entry.query }}</td>
+          <td>
+            <span *ngIf="entry.success">Successful</span>
+            <span *ngIf="!entry.success">Search result not found</span>
+          </td>
+          <td>
+            <img *ngIf="entry.userData?.avatar_url" [src]="entry.userData.avatar_url" alt="Profile Image" class="user-image" />
+          </td>
+          <td>{{ entry.userData?.login || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="clearBtn" type="button" (click)="clearSearchHistory()">Clear Search History</button>
+</section>

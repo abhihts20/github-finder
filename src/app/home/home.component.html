@@ -1,0 +1,25 @@
+<section class="homeSection__Container">
+  <h2>Search GitHub User</h2>
+  <form #searchGithubUserForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="githubUserSection">
+      <input type="text" placeholder="Enter GitHub Username" class="inputTextBox" name="githubUserName" [(ngModel)]="githubUserName"/>
+      <button class="searchBtn" type="submit">Search</button>
+    </div>
+  </form>
+  @if(userData) {
+    <div class="userData">
+      <h4>Search Results</h4>
+      <div class="userCard">
+        <section class="leftSec">
+          <p class="staticImageText">User Image</p>
+          <img src={{userData?.avatar_url}} alt="profileImg" width="200px" height="200px" />
+        </section>
+        <section class="rightSec">
+          <p class="staticImageText">GitHub User Name</p>
+          <p>{{userData?.login}}</p>
+          <p>{{userData?.bio}}</p>
+        </section>
+      </div>
+    </div>
+  }
+</section>
