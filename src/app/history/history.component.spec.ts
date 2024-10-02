@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryComponent } from './history.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../store/app.reducer';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 describe('HistoryComponent', () => {
   let component: HistoryComponent;
@@ -8,7 +11,7 @@ describe('HistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HistoryComponent]
+      imports: [HistoryComponent, StoreModule.forRoot(reducers),RouterLink, RouterOutlet, RouterLinkActive]
     })
     .compileComponents();
 

@@ -1,10 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.reducer';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, StoreModule.forRoot(reducers), RouterLink, RouterOutlet, RouterLinkActive]
     }).compileComponents();
   });
 
